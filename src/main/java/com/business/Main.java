@@ -1,21 +1,18 @@
 package com.business;
 
-import jdk.dynalink.linker.support.CompositeGuardingDynamicLinker;
-
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
         String[] universities = {"TUT", "NMU", "UP", "UL", "WSU", "VUT", "UJ"};
         Integer[] judgeScores = {75, 65, 60, 55, 60, 70, 77};
-        Integer[] onlineScores = new Integer[universities.length];
-        Integer[] totalScore = new Integer[universities.length];
+        Integer[] onlineScores ;
+        Integer[] totalScore ;
         onlineScores = populateOnlineScore(universities);
         totalScore = populateTotalScore(onlineScores, judgeScores);
         int winnerIndex = determineWinner(totalScore);
 
         System.out.println("Univiersities"+"\t"+"Judges score"+"\t"+"Online score"+"\t"+"Total score");
-        String output = "";
         for(int i = 0; i < universities.length; i++){
             System.out.println(universities[i]+"\t\t\t\t"+judgeScores[i]+"\t\t\t\t"+onlineScores[i]+"\t\t\t\t"+totalScore[i]);
         }
